@@ -1,39 +1,34 @@
 # Sistema experto: perfil del inversionista
 
-Primera entrega del proyecto: base de conocimientos, motor de inferencia e interfaz de usuario.
+Proyecto académico de Sistemas Inteligentes que clasifica el perfil de un inversionista mediante un cuestionario de 14 preguntas y reglas definidas previamente.
 
-## Archivos
+## Objetivo
 
-- [Presentación para clase](index.html): 12 diapositivas en estilo Blockframe. Incluye teoría, reglas, un ejemplo y notas para exponer.
-- [Cuaderno de la primera entrega](Primera_Entrega_Sistema_Experto.ipynb): las 14 preguntas, reglas de puntuación, perfiles y cuestionario interactivo.
+Representar criterios de evaluación financiera en un sistema experto capaz de obtener un perfil y explicar las reglas que llevaron a esa conclusión.
 
-## Presentación
+## Base de conocimientos
 
-Descarga `index.html` y ábrelo en un navegador. Las fuentes están incorporadas y funciona sin conexión.
+Reúne las preguntas, sus opciones de respuesta, los puntos asignados a cada opción y los perfiles posibles. El cuestionario considera la edad, el horizonte de inversión, la situación económica, la experiencia, la tolerancia a pérdidas y las necesidades de liquidez.
 
-- Flechas o barra espaciadora: navegar.
-- **F**: pantalla completa.
-- **N**: notas para el expositor (también se muestran al público si se proyecta esa pantalla).
-- **E**: editar textos. Los cambios se guardan localmente en ese navegador.
-- **Ctrl+S**: descargar una copia con los textos editados. Para actualizar la versión publicada, hay que subir esa copia al repositorio como `index.html`.
+## Motor de inferencia
 
-## Cuaderno
+El sistema parte de las respuestas del usuario, revisa su validez y evalúa una regla prioritaria: si la pregunta 12 indica que el usuario se considera inversionista sofisticado, asigna ese perfil. En los demás casos, suma los puntos y compara el total con los rangos establecidos.
 
-GitHub permite consultar su contenido y descargar el archivo; no ejecuta el cuestionario interactivo.
+Cada evaluación incluye una traza de razonamiento que registra las reglas aplicadas y justifica el resultado.
 
-Para utilizarlo, ábrelo en Jupyter Notebook, JupyterLab o VS Code con soporte de notebooks. Requiere Python 3.10 o posterior, IPython e ipywidgets. Ejecuta las celdas en orden, responde las 14 preguntas y pulsa **Evaluar perfil**.
+## Interfaz de usuario
 
-El cuaderno no utiliza Pandas, NumPy ni gráficas. El perfil y la explicación se obtienen con reglas de Python.
+Un cuestionario interactivo permite registrar las respuestas y mostrar el perfil asignado, su descripción, el puntaje cuando corresponde y la explicación de la decisión.
 
-## Publicar la presentación en Vercel
+## Perfiles de inversionista
 
-Importa este repositorio desde tu cuenta de Vercel y utiliza:
+- **Adverso al Riesgo:** prioriza preservar el capital y reducir la exposición al riesgo.
+- **Moderado:** busca un equilibrio entre seguridad y rendimiento.
+- **Propenso al Riesgo:** acepta mayor exposición al riesgo para buscar mayor rentabilidad.
+- **Sofisticado:** se asigna mediante la regla especial de la pregunta 12.
 
-- **Framework Preset:** Other.
-- **Root Directory:** la raíz del repositorio.
-- **Build Command:** vacío (sin compilación).
-- **Output Directory:** `.`.
+## Alcance de la primera entrega
 
-`index.html` es la página inicial de la presentación. El archivo `.ipynb` se mantiene en el mismo repositorio para consultar o descargar el trabajo práctico; Vercel no ejecuta Python ni sus widgets.
+La entrega comprende la base de conocimientos, el motor de inferencia y la interfaz, acompañados de un marco teórico y un ejemplo de evaluación. El repositorio contiene el [cuaderno del proyecto](Primera_Entrega_Sistema_Experto.ipynb) y la [presentación para clase](index.html).
 
-Proyecto académico basado en las reglas del cuestionario original. La respuesta de la pregunta 12 es una declaración del usuario; el programa no comprueba documentación financiera.
+La implementación utiliza Python e ipywidgets. Las reglas se conservan del cuestionario original; el proyecto no comprueba documentación financiera ni recomienda productos de inversión.
